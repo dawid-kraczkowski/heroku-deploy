@@ -11,6 +11,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".docker", ".docker", "{D96EBF2E-483B-48E6-B087-D30B11E31FC6}"
+	ProjectSection(SolutionItems) = preProject
+		.docker\dev = .docker\dev
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{861120CC-322F-41B3-9AAB-7832364233E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{CB0B7E00-BFF9-452A-9DDF-6DB4971DE609}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\deploy-dev.yml = .github\workflows\deploy-dev.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +36,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D96EBF2E-483B-48E6-B087-D30B11E31FC6} = {C90CED1D-E14E-419B-B0E4-C3D0CBAE3C5C}
+		{861120CC-322F-41B3-9AAB-7832364233E4} = {C90CED1D-E14E-419B-B0E4-C3D0CBAE3C5C}
+		{CB0B7E00-BFF9-452A-9DDF-6DB4971DE609} = {861120CC-322F-41B3-9AAB-7832364233E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43546C17-66DA-46F2-BC99-9ED553E191C6}

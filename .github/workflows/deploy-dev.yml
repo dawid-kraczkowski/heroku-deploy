@@ -1,0 +1,29 @@
+name: Automatic deploy to Heroku from master
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+    env:
+      APP_NAME: ${{ 'dotnetowiec-sample' }}
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone the repository
+      uses: actions/checkout@v1
+
+    - name: Docker - Login to Heroku registry
+      run: docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
+
+    - name: Docker - Build => Tag => Push
+      run: | 
+        docker build --no-cache -f "./.docker/dev" -t $APP_NAME "./"
+        docker tag $APP_NAME registry.heroku.com/$APP_NAME/web
+        docker push registry.heroku.com/$APP_NAME/web
+
+    - name: Heroku - Release
+      run: heroku container:release web --app $APP_NAME
